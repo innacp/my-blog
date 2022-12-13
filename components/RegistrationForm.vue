@@ -1,21 +1,41 @@
 <template>
   <div>
-    <form class="registration-form" action="#">
+    <form class="w-full" action="#">
       <div>
         <label for="username">Your username</label>
-        <input type="text" v-model="form.username" />
+        <input
+          id="username"
+          type="text"
+          placeholder="Enter username"
+          v-model="form.username"
+        />
       </div>
       <div>
         <label for="email">Your email</label>
-        <input type="email" v-model="form.email" />
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter email"
+          v-model="form.email"
+        />
       </div>
       <div>
         <label for="password">Your password</label>
-        <input type="password" v-model="form.password" />
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter password"
+          v-model="form.password"
+        />
       </div>
       <div>
         <label for="confirm">Confirm your password</label>
-        <input type="password" v-model="form.confirmPassword" />
+        <input
+          id="confirm"
+          type="password"
+          placeholder="Confirm password"
+          v-model="form.confirmPassword"
+        />
       </div>
     </form>
     <button @click="send">Send</button>
