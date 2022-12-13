@@ -2,11 +2,11 @@
   <div>
     <form action="#">
       <div>
-        <label for="email">Your email</label>
+        <label for="email"></label>
         <input id="email" type="email" placeholder="Enter email" />
       </div>
       <div>
-        <label for="password">Your password</label>
+        <label for="password"></label>
         <input id="password" type="password" placeholder="Enter password" />
       </div>
     </form>
