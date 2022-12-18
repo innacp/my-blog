@@ -1,5 +1,9 @@
 <template>
-  <h1>Hello world</h1>
+  <div>
+    <h1>Hello world</h1>
+    <button>Create Post</button>
+    <PostForm />
+  </div>
 </template>
 
 <script>
