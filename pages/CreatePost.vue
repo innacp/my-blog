@@ -45,10 +45,10 @@
     </div>
   </div>
 </template>
-
-<script>
+  
+  <script>
 export default {
-  // name: "PostForm",
+  name: "CreatePost",
   data() {
     return {
       form: {

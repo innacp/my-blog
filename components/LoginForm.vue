@@ -58,6 +58,7 @@
 
 <script>
 export default {
+  name: "LoginForm",
   data() {
     return {
       userEmail: null,
@@ -85,6 +86,7 @@ export default {
         const { jwt } = data; //jwt from  data object// better use this
 
         console.log(jwt);
+        console.log(res.data.user);
         if (jwt) {
           localStorage.setItem("token", jwt);
         }

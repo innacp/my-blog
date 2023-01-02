@@ -2,9 +2,8 @@
   <div>
     <nav>
       <NuxtLink to="/">Home</NuxtLink>
-      <NuxtLink to="/PostForm">Create Post</NuxtLink>
+      <NuxtLink to="/CreatePost">Create Post</NuxtLink>
       <NuxtLink to="/Login">Sign Up/Login</NuxtLink>
-      <PostForm />
     </nav>
   </div>
 </template>
