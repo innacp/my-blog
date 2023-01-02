@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form action="#">
+    <form class="max-w-[250px] flex flex-col gap-x-1 mb-[10px]" action="#">
       <input
         name="title"
         type="text"
@@ -14,6 +14,7 @@
           w-full
           outline-none
           h-7
+          mb-[5px]
         "
       />
       <input
@@ -29,13 +30,14 @@
           w-full
           outline-none
           h-7
+          mb-[5px]
         "
       />
     </form>
     <div class="grid place-content-center">
       <button
         type="submit"
-        @click="submit"
+        @click="submitPost"
         class="bg-orange-500 rounded-full py-[0px] px-[20px]"
       >
         Publish
@@ -46,7 +48,7 @@
 
 <script>
 export default {
-  name: "PostForm",
+  // name: "PostForm",
   data() {
     return {
       form: {
@@ -56,7 +58,8 @@ export default {
     };
   },
   methods: {
-    async submit() {
+    async submitPost() {
+      // const token =
       try {
         const result = await this.$axios.post("/api/posts", {
           title: this.form.postTitle,
