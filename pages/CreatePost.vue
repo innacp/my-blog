@@ -43,12 +43,19 @@
         Publish
       </button>
     </div>
+    <pre>
+      {{ user }}
+    </pre>
   </div>
 </template>
   
   <script>
+import { mapState } from "pinia";
+import { useUserStore } from "@/stores/user";
+
 export default {
   name: "CreatePost",
+  middleware: ["auth"],
   data() {
     return {
       form: {
@@ -56,6 +63,9 @@ export default {
         postText: "",
       },
     };
+  },
+  computed: {
+    ...mapState(useUserStore, ["user"]),
   },
   methods: {
     async submitPost() {

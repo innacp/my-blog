@@ -9,7 +9,7 @@
           id="email"
           type="email"
           placeholder="Enter email"
-          v-model="userEmail"
+          v-model="user.email"
           class="
             border
             rounded-sm
@@ -29,7 +29,7 @@
           id="password"
           type="password"
           placeholder="Enter password"
-          v-model="userPassword"
+          v-model="user.password"
           class="
             border
             rounded-sm
@@ -44,7 +44,7 @@
       <div class="grid place-content-center">
         <button
           type="submit"
-          @click.prevent="sendForm"
+          @click.prevent="login"
           class="bg-orange-500 rounded-full py-[0px] px-[20px]"
         >
           Log in
@@ -61,8 +61,10 @@ export default {
   name: "LoginForm",
   data() {
     return {
-      userEmail: null,
-      userPassword: null,
+      user: {
+        email: null,
+        password: null,
+      },
     };
   },
   methods: {
@@ -70,10 +72,10 @@ export default {
       localStorage.removeItem("token");
       alert("Logout successful");
     },
-    async sendForm() {
+    async login() {
       const userTryToLogin = {
-        identifier: this.userEmail,
-        password: this.userPassword,
+        identifier: this.user.email,
+        password: this.user.password,
       };
       try {
         // const {
@@ -88,29 +90,17 @@ export default {
         console.log(jwt);
         console.log(res.data.user);
         if (jwt) {
-          localStorage.setItem("token", jwt);
+          // якщо є jwt token то записуєм його в кукі під ключом "token"
+          this.$cookies.set("token", jwt, {
+            // maxAge - це секунди, в данному випадку ( maxAge: 60 * 60 * 24 * 7 ) це 7 днів
+            maxAge: 60 * 60 * 24 * 7,
+          });
         }
         alert("login successful");
       } catch (error) {
         alert("login failed"), console.log(error);
       }
     },
-
-    // async sendForm() {
-    //   try {
-    //     const res = await this.$axios.post("/api/auth/local", {
-    //       identifier: this.userEmail,
-    //       password: this.userPassword,
-    //     });
-
-    //     console.log("login successful");
-    //     console.log(res.data.user);
-    //     console.log(res.data.jwt);
-    //   } catch (error) {
-    //     console.log("login failed");
-    //     console.log(error.res);
-    //   }
-    // },
   },
 };
 </script>

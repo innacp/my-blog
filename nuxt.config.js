@@ -24,10 +24,14 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxt/postcss8"],
+  buildModules: [
+    "@nuxt/postcss8",
+    "@nuxtjs/composition-api/module",
+    ["@pinia/nuxt", { disableVuex: false }],
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios"],
+  modules: ["@nuxtjs/axios", "cookie-universal-nuxt"],
   axios: {
     baseURL: "http://localhost:1337",
   },
