@@ -46,6 +46,9 @@
     <pre>
       {{ user }}
     </pre>
+    <pre>
+      {{ form.postText }}
+    </pre>
   </div>
 </template>
   

@@ -42,6 +42,5 @@ export default {
       tab: "login",
     };
   },
-  methods: {},
 };
 </script>

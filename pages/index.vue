@@ -4,6 +4,7 @@
       <NuxtLink to="/">Home</NuxtLink>
       <NuxtLink to="/CreatePost">Create Post</NuxtLink>
       <NuxtLink to="/Login">Sign Up/Login</NuxtLink>
+      <NuxtLink to="/PostCard">User Post</NuxtLink>
     </nav>
   </div>
 </template>
