@@ -69,13 +69,24 @@ export default {
   },
   methods: {
     async submitPost() {
-      // const token =
+      const token = this.$cookies.get("token");
       try {
-        const result = await this.$axios.post("/api/posts", {
-          title: this.form.postTitle,
-          text: this.form.postText,
-        });
+        const result = await this.$axios.post(
+          "/api/posts",
+          {
+            data: {
+              title: this.form.postTitle,
+              text: this.form.postText,
+            },
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         console.log(result);
+        // redirect("/PostCard");
       } catch (error) {
         console.log(error);
       }
